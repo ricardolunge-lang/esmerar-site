@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Esmerar, clínica estética em Barra Velha (SC). Harmonização facial, criomodelagem, estética facial e corporal e nutrição.">
+<title>Esmerar Barra Velha</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap">
+<style>
+/* Layout: editorial em coluna larga, fundo claro, linhas finas, vinho só como acento */
+:root{
+  --paper:#FBF8F4; --stone:#F1EBE4; --ink:#2B2024; --muted:#85767B; --line:#E3D9D0;
+  --wine:#5A1D34; --gold:#A8865A;
+  --sans:"Hanken Grotesk",ui-sans-serif,system-ui,sans-serif;
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.7}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+a{color:inherit;text-decoration:none}
+a:focus-visible,summary:focus-visible{outline:1px solid var(--wine);outline-offset:4px}
+h1,h2,h3,p{margin:0}
+h1,h2{font-weight:300;letter-spacing:-.035em;line-height:1;text-wrap:balance}
+em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--wine)}
+.label{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.img{background:var(--stone) center/cover no-repeat;width:100%}
+.link{display:inline-flex;gap:10px;align-items:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;border-bottom:1px solid currentColor;padding-bottom:4px;color:var(--wine);transition:gap .25s}
+.link:hover{gap:16px}
+section{padding-block:clamp(72px,11vw,140px);border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:200px 1fr;gap:32px;margin-bottom:clamp(40px,6vw,72px)}
+h2{font-size:clamp(36px,5vw,64px)}
+
+/* nav */
+nav{display:flex;justify-content:space-between;align-items:center;padding-block:28px;font-size:13px}
+.brand{font-size:15px;letter-spacing:.32em;font-weight:400}
+nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0;color:var(--muted)}
+nav ul a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:end;padding-block:clamp(32px,6vw,72px) clamp(72px,10vw,120px)}
+.hero h1{font-size:clamp(52px,8.4vw,116px)}
+.hero h1 em{display:block}
+.hero .intro{max-width:36ch;color:var(--muted);margin-block:32px 40px;font-size:17px}
+.hero .img{aspect-ratio:4/5;background-image:url(img/hero.jpg)}
+.hero figcaption{font-size:12px;color:var(--muted);margin-top:12px;display:flex;justify-content:space-between}
+
+/* manifesto */
+.manifesto p{font-size:clamp(24px,3.1vw,40px);line-height:1.3;letter-spacing:-.02em;max-width:26ch;text-wrap:pretty}
+.manifesto .sub{font-size:16px;letter-spacing:0;color:var(--muted);max-width:52ch;margin-top:28px;line-height:1.7}
+
+/* cuidados */
+.svc-list{list-style:none;margin:0;padding:0}
+.svc{display:grid;grid-template-columns:200px 1.2fr 1fr 140px;gap:32px;align-items:center;padding-block:28px;border-top:1px solid var(--line)}
+.svc:last-child{border-bottom:1px solid var(--line)}
+.svc .n{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.svc h3{font-size:clamp(24px,2.6vw,34px);font-weight:300;letter-spacing:-.02em}
+.svc p{color:var(--muted);font-size:14px;max-width:40ch}
+.svc .img{aspect-ratio:4/3;filter:saturate(.85)}
+
+/* espaço */
+.space{display:grid;grid-template-columns:7fr 5fr;gap:clamp(16px,2vw,24px);align-items:start}
+.space .a{aspect-ratio:4/3.2;background-image:url(img/recepcao.jpg)}
+.space .b{aspect-ratio:3/4;background-image:url(img/produtos.jpg)}
+.space .txt{margin-top:28px;color:var(--muted);max-width:42ch}
+
+/* doutora */
+.dra{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,96px);align-items:center}
+.dra .img{aspect-ratio:4/5;background-image:url(img/dra.jpg)}
+.dra .role{margin-top:20px}
+.dra .bio{color:var(--muted);margin-top:28px;max-width:50ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:28px;font-size:13px}
+.tags span::before{content:"— ";color:var(--gold)}
+
+/* etapas */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.step{border-top:1px solid var(--ink);padding-top:20px}
+.step .n{font-size:12px;color:var(--muted)}
+.step h3{font-size:20px;font-weight:400;letter-spacing:-.01em;margin-top:28px}
+.step p{font-size:14px;color:var(--muted);margin-top:10px}
+
+/* depoimentos */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}
+.quotes figure{margin:0;display:flex;flex-direction:column;gap:20px}
+.quotes blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:clamp(20px,2vw,26px);line-height:1.35}
+.quotes figcaption{font-size:12px;color:var(--muted);letter-spacing:.06em}
+.stars{color:var(--gold);letter-spacing:4px;font-size:12px}
+.disclaimer{font-size:12px;color:var(--muted);margin-top:48px}
+
+/* faq */
+.faq{display:grid;grid-template-columns:200px 1fr;gap:32px}
+.faq h2{margin-bottom:56px}
+details{border-top:1px solid var(--line);padding-block:22px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:24px;font-size:18px;font-weight:400}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:300;color:var(--muted);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);font-size:15px;margin-top:12px;max-width:60ch}
+
+/* contato */
+.cta{background:var(--stone);border-top:0}
+.cta h2{font-size:clamp(44px,7vw,96px)}
+.cta-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:end}
+.contacts{display:grid;gap:0}
+.contacts div{display:flex;justify-content:space-between;gap:16px;padding-block:16px;border-top:1px solid var(--line)}
+.contacts div:last-child{border-bottom:1px solid var(--line)}
+.contacts span:last-child{user-select:all}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-block:32px;font-size:12px;color:var(--muted)}
+
+
+/* abertura original */
+.top{border-radius:24px;padding:28px clamp(20px,4vw,48px) 36px;margin-top:16px;color:#FAF6F1;position:relative;overflow:hidden;
+ background:radial-gradient(120% 100% at 0% 0%,#6B2741 0%,#3E1224 70%)}
+.top>*{position:relative;z-index:1}
+.top .top-photo{position:absolute;z-index:0;top:0;right:0;bottom:0;width:50%;background:url(img/hero.jpg) 50% 72%/cover}
+.top .top-photo::before{content:"";position:absolute;inset:0 auto 0 0;width:90px;background:linear-gradient(90deg,#3E1224,transparent)}
+.top-grid{grid-template-columns:44% 1fr!important;gap:6%!important}
+.top h1{font-size:clamp(56px,6.6vw,100px)!important}
+.top .logo{text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.top .talk a,.top .dot{text-shadow:0 1px 6px rgba(0,0,0,.25)}
+.top nav{padding-block:0}
+.top nav .links{display:grid;grid-template-columns:auto auto;gap:2px 22px;opacity:.85}
+.top .logo{text-align:center;font-size:22px;letter-spacing:.14em;font-weight:400;line-height:1}
+.top .logo small{display:block;font-size:9px;letter-spacing:.32em;color:#B8925F;margin-top:4px}
+.top .talk{display:flex;align-items:center;gap:12px}
+.top .talk a{text-decoration:underline;text-underline-offset:4px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.top .dot{width:34px;height:34px;border-radius:50%;background:#F0E7DE;color:#5A1D34;display:grid;place-items:center;font-weight:600}
+.top-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;margin-top:72px;align-items:end}
+.top h1{font-size:clamp(56px,10vw,132px);color:#F0E7DE;font-weight:300}
+.top h1 em{font-style:normal;font-family:var(--sans);color:#B8925F;display:block;letter-spacing:-.035em}
+.top .lead{font-size:clamp(17px,2vw,22px);text-transform:uppercase;line-height:1.25;margin:22px 0 26px;max-width:22ch}
+.top .btn{display:inline-flex;gap:10px;padding:12px 22px;border-radius:999px;background:#F0E7DE;color:#5A1D34;font-size:14px;font-weight:500}
+.top-side{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-end;gap:10px;align-items:flex-end;align-self:end;transform:translateY(96px)}
+.chip{background:rgba(250,246,241,.1);backdrop-filter:blur(8px);border:1px solid rgba(250,246,241,.18);border-radius:20px;padding:16px;display:flex;gap:14px;align-items:center;width:min(100%,320px)}
+.chip .thumb{width:72px;height:72px;border-radius:14px;flex:none;background:url(img/produtos.jpg) center/cover}
+.chip b{font-weight:500;font-size:13px;text-transform:uppercase;letter-spacing:.06em;display:block}
+.chip p{font-size:12px;opacity:.8;line-height:1.4;margin-top:4px}
+.chip .big{font-size:40px;font-weight:300;line-height:1}
+.perks{display:flex;flex-wrap:wrap;gap:28px;margin-top:48px;font-size:12px;opacity:.85}
+.perks div{display:flex;gap:8px;line-height:1.3}.perks i{font-style:normal;color:#B8925F}
+/* imagens grandes */
+.band{height:clamp(340px,62vw,760px);background:var(--stone) center/cover no-repeat}
+.feature{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,80px);align-items:center;padding-block:clamp(32px,5vw,64px);border-top:1px solid var(--line)}
+.feature:nth-child(even){grid-template-columns:5fr 7fr}
+.feature:nth-child(even) .img{order:2}
+.feature .img{aspect-ratio:4/4.6}
+.feature .n{font-size:12px;color:var(--muted)}
+.feature h3{font-size:clamp(32px,4vw,52px);font-weight:300;letter-spacing:-.03em;line-height:1.05;margin-top:16px}
+.feature p{color:var(--muted);margin-top:18px;max-width:38ch}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,24px)}
+.duo .img{aspect-ratio:4/5}
+@media (max-width:900px){.top-grid,.feature,.feature:nth-child(even),.duo{grid-template-columns:1fr}.feature:nth-child(even) .img{order:0}.top-side{align-items:flex-start}.top nav .links{display:none}
+ .top-grid{grid-template-columns:1fr!important}
+ .top h1{font-size:clamp(48px,14vw,72px)!important}
+ .top .top-photo{position:relative;inset:auto;width:auto;aspect-ratio:4/4.4;margin:28px calc(-1*clamp(20px,4vw,48px)) 0;order:2}
+ .top .top-photo::before{inset:0 0 auto 0;width:auto;height:70px;background:linear-gradient(180deg,#3E1224,transparent)}
+ .top{display:flex;flex-direction:column;padding-bottom:28px}
+ .top nav{order:0}.top-grid{order:1;margin-top:40px}.top-photo{order:2}.perks{order:3;margin-top:28px}
+ .top-side{display:none}
+ .top h1{font-size:clamp(48px,14vw,72px)}
+ .chip{width:100%}}
+.fade{animation:fade 1s ease both}
+@keyframes fade{from{opacity:.001;transform:translateY(12px)}}
+@media (prefers-reduced-motion:reduce){.fade{animation:none}.link{transition:none}}
+
+@media (max-width:900px){
+  nav ul{display:none}
+  .hero,.space,.dra,.cta-grid{grid-template-columns:1fr}
+  .sec-head,.faq{grid-template-columns:1fr;gap:16px}
+  .svc{grid-template-columns:40px 1fr 110px;gap:16px}
+  .svc p{grid-column:2/3}
+  .svc .img{grid-row:1/3;grid-column:3}
+  .steps{grid-template-columns:1fr 1fr}
+  .quotes{grid-template-columns:1fr}
+  .space .b{margin-top:0}
+}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* ===== ref 04: hero central + arco de fotos ===== */
+.arc{position:relative;overflow:hidden;border-radius:24px;margin-top:16px;color:#FAF6F1;background:#3E1224;isolation:isolate}
+.arc .bg{position:absolute;inset:-12% 0 0;background:url(img/hero.jpg) 50% 40%/cover;filter:blur(2px) saturate(.9);transform:scale(1.08);z-index:-2;will-change:transform}
+.arc::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(62,18,36,.55) 0%,rgba(62,18,36,.35) 45%,rgba(251,248,244,.0) 70%,var(--paper) 100%)}
+.arc nav{display:flex;justify-content:space-between;align-items:center;padding:22px clamp(18px,3vw,32px);border-bottom:1px solid rgba(250,246,241,.18)}
+.arc .brand{color:#FAF6F1}
+.arc .navr{display:flex;gap:8px}
+.pill{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:9px 10px 9px 16px;border-radius:6px;border:1px solid rgba(250,246,241,.35);color:#FAF6F1}
+.pill.solid{background:#FAF6F1;color:var(--wine);border-color:transparent}
+.pill i{font-style:normal;width:22px;height:22px;display:grid;place-items:center;background:var(--wine);color:#FAF6F1;border-radius:4px;font-size:11px}
+.pill:not(.solid) i{background:transparent}
+.arc .center{text-align:center;padding:clamp(56px,9vw,110px) 20px 0}
+.rating{font-size:12px;letter-spacing:.06em;opacity:.9}
+.rating b{color:#E3C79C;font-weight:400}
+.arc h1{font-family:var(--serif);font-style:normal;font-weight:400;font-size:clamp(44px,6.4vw,88px);letter-spacing:-.02em;line-height:1.05;margin:18px auto 0;max-width:14ch;text-shadow:0 2px 24px rgba(40,10,20,.35)}
+.arc h1 i{color:#E3C79C}
+.arc .sub{max-width:44ch;margin:18px auto 28px;opacity:.9}
+.arc .pill.cta{background:var(--wine);border-color:transparent}
+.arc .pill.cta i{background:#FAF6F1;color:var(--wine)}
+.ring{display:flex;justify-content:center;align-items:center;gap:clamp(8px,1.4vw,18px);perspective:1100px;padding:clamp(48px,7vw,80px) 0 clamp(40px,6vw,64px);margin-inline:-6%}
+.ring .c{flex:none;border-radius:14px;background:var(--stone) center/cover;box-shadow:0 24px 50px -24px rgba(40,10,20,.6);will-change:transform}
+.ring .c:nth-child(1){width:15%;aspect-ratio:3/4.2;transform:rotateY(38deg)}
+.ring .c:nth-child(2){width:12%;aspect-ratio:3/4.4;transform:rotateY(26deg)}
+.ring .c:nth-child(3){width:10%;aspect-ratio:3/3.8;transform:rotateY(12deg)}
+.ring .c:nth-child(4){width:10%;aspect-ratio:3/3.6}
+.ring .c:nth-child(5){width:10%;aspect-ratio:3/3.8;transform:rotateY(-12deg)}
+.ring .c:nth-child(6){width:12%;aspect-ratio:3/4.4;transform:rotateY(-26deg)}
+.ring .c:nth-child(7){width:15%;aspect-ratio:3/4.2;transform:rotateY(-38deg)}
+.ring .c span{display:block;transform:translateY(var(--py,0px))}
+@media (max-width:700px){.arc .navr .pill:not(.solid){display:none}.ring{margin-inline:-30%}.ring .c:nth-child(1),.ring .c:nth-child(7){display:none}.ring .c{width:22%!important}}
+
+/* sticky cards */
+.stack{display:flex;flex-direction:column;gap:24px;padding-bottom:40px}
+.stack .feature{position:sticky;top:calc(24px + var(--i)*22px);background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(16px,2vw,24px);box-shadow:0 -12px 40px -24px rgba(62,18,36,.25);transform-origin:top center;transition:transform .3s}
+.stack .feature:nth-child(odd){background:#F6F0EA}
+.stack .feature .img{aspect-ratio:auto;height:min(62vh,520px);border-radius:14px}
+.stack .feature>div:last-child{padding:clamp(8px,2vw,24px)}
+
+/* parallax bands */
+.band{background-attachment:scroll;background-size:cover;background-repeat:no-repeat;will-change:background-position}
+.feature .img,.space .img,.duo .img,.dra .img{border-radius:14px}
+
+/* fade-in */
+.js .fx{opacity:0;transform:translateY(32px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.js .fx.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .fx{opacity:1;transform:none;transition:none}.arc .bg{transform:none}}
+
+/* carrossel contínuo em arco */
+.ring{display:block!important;position:relative;height:clamp(230px,30vw,380px);margin:clamp(40px,6vw,72px) 0 clamp(32px,5vw,56px)!important;padding:0!important;perspective:1100px;overflow:hidden}
+.ring .track{position:absolute;top:50%;left:0;display:flex;gap:clamp(10px,1.4vw,18px);transform-style:preserve-3d}
+.ring .c{display:block!important;width:clamp(120px,13vw,200px)!important;aspect-ratio:3/4!important;transform:none;transition:none}
+</style>
+<style>body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="arc">
+    <div class="bg" data-bg></div>
+    <nav>
+      <a class="brand" href="#">ESMERAR</a>
+      <div class="navr"><a class="pill" href="#cuidados">Cuidados <i>+</i></a><a class="pill solid" href="#contato">Agendar <i>↗</i></a></div>
+    </nav>
+    <div class="center">
+      <p class="rating"><b>★★★★★</b> Avaliada pelas pacientes no Google</p>
+      <h1>Volte para <i>o que faz bem.</i></h1>
+      <p class="sub">Um espaço de cuidado e beleza em Barra Velha para respirar fundo, se acolher e voltar para si.</p>
+      <a class="pill cta" href="#contato">Comece por aqui <i>↗</i></a>
+    </div>
+    <div class="ring" role="img" aria-label="Fotos de cuidados da clínica"><div class="track"><div class="c" style="background-image:url(img/dra.jpg)" data-speed="0.06"></div><div class="c" style="background-image:url(img/pele.jpg)" data-speed="0.1"></div><div class="c" style="background-image:url(img/mascara.jpg)" data-speed="0.14"></div><div class="c" style="background-image:url(img/hero.jpg)" data-speed="0.18"></div><div class="c" style="background-image:url(img/harmonizacao.jpg)" data-speed="0.14"></div><div class="c" style="background-image:url(img/ventosa.jpg)" data-speed="0.1"></div><div class="c" style="background-image:url(img/nutricao.jpg)" data-speed="0.06"></div></div></div>
+  </header>
+</div>
+
+<section class="manifesto">
+  <div class="fx wrap sec-head" style="margin-bottom:0">
+    <p class="label">Nossa essência</p>
+    <div>
+      <p>Um espaço para respirar, <em>tempo para se encontrar.</em></p>
+      <p class="sub">A Esmerar é uma pausa no meio do ritmo de todos os dias. Acreditamos que cuidar de si começa com atenção, presença e espaço para se escutar. Um momento seu, com acolhimento e cuidado pensado para respeitar sua individualidade.</p>
+    </div>
+  </div>
+</section>
+
+<div class="band" role="img" aria-label="Sala de atendimento" style="background-image:url(img/sala.jpg)"></div>
+
+<section id="cuidados">
+  <div class="wrap">
+    <div class="fx sec-head"><p class="label">O que fazemos</p><h2>Cuidado que respeita <em>o seu tempo.</em></h2></div>
+    <div class="stack">
+      <article class="feature" style="--i:0"><div class="img" style="background-image:url(img/harmonizacao.jpg)" role="img" aria-label="Harmonização facial"></div><div><span class="n">01</span><h3>Harmonização facial</h3><p>Planos personalizados para valorizar as características de cada rosto, sem alterar sua identidade.</p><a class="link" href="#contato" style="margin-top:28px">Agendar avaliação →</a></div></article>
+      <article class="feature" style="--i:1"><div class="img" style="background-image:url(img/crio.jpg)" role="img" aria-label="Criomodelagem"></div><div><span class="n">02</span><h3>Criomodelagem</h3><p>Abordagem corporal avaliada caso a caso pela equipe, com indicação após conversa individual.</p><a class="link" href="#contato" style="margin-top:28px">Agendar avaliação →</a></div></article>
+      <article class="feature" style="--i:2"><div class="img" style="background-image:url(img/mascara.jpg)" role="img" aria-label="Estética facial e corporal"></div><div><span class="n">03</span><h3>Estética facial e corporal</h3><p>Limpeza, máscaras, liberação miofascial e ventosaterapia, com atenção à individualidade.</p><a class="link" href="#contato" style="margin-top:28px">Agendar avaliação →</a></div></article>
+      <article class="feature" style="--i:3"><div class="img" style="background-image:url(img/nutricao.jpg)" role="img" aria-label="Nutrição"></div><div><span class="n">04</span><h3>Nutrição</h3><p>Orientação nutricional para cuidar de dentro para fora.</p><a class="link" href="#contato" style="margin-top:28px">Agendar avaliação →</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="espaco">
+  <div class="wrap">
+    <div class="fx sec-head"><p class="label">Nosso espaço</p><h2>Um lugar para chegar <em>como você é.</em></h2></div>
+    <div class="fx space">
+      <div><div class="img a" role="img" aria-label="Recepção da clínica"></div><p class="txt">Um ambiente tranquilo para desacelerar, respirar e dedicar um pouco de atenção a você. Estamos em Barra Velha.</p></div>
+      <div class="img b" role="img" aria-label="Detalhes da sala de atendimento"></div>
+    </div>
+    <div class="fx duo" style="margin-top:clamp(16px,2vw,24px)"><div class="img" role="img" aria-label="Ventosaterapia" style="background-image:url(img/ventosa.jpg)"></div><div class="img" role="img" aria-label="Toalhas e chá" style="background-image:url(img/toalhas.jpg)"></div></div>
+  </div>
+</section>
+
+<section id="dra">
+  <div class="fx wrap dra">
+    <div class="img" role="img" aria-label="Dra. Mariana Bittencourt"></div>
+    <div>
+      <p class="label">Sobre a profissional</p>
+      <h2 style="margin-top:24px">Dra. Mariana <em>Bittencourt</em></h2>
+      <p class="label role" style="color:var(--gold)">Cuidado com ciência e individualidade</p>
+      <p class="bio">Na nossa clínica, não oferecemos soluções rápidas ou procedimentos sem base científica. Oferecemos planos de tratamento personalizados e relacionamentos duradouros com nossas pacientes, realçando a beleza natural de cada uma sem alterar sua identidade.</p>
+      <div class="tags"><span>Harmonização facial</span><span>Estética facial e corporal</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="fx sec-head"><p class="label">Como funciona</p><h2>Do primeiro contato <em>ao resultado.</em></h2></div>
+    <div class="fx steps">
+      <div class="step"><span class="n">01</span><h3>Conversa inicial</h3><p>Você conta o que procura pelo WhatsApp ou Instagram, sem compromisso.</p></div>
+      <div class="step"><span class="n">02</span><h3>Avaliação</h3><p>A profissional avalia sua pele, rosto ou corpo e escuta seus objetivos.</p></div>
+      <div class="step"><span class="n">03</span><h3>Plano sob medida</h3><p>Você recebe os cuidados indicados, com etapas e orientações.</p></div>
+      <div class="step"><span class="n">04</span><h3>Acompanhamento</h3><p>Seguimos com você nos retornos, ajustando o cuidado quando preciso.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="band" role="img" aria-label="Pele luminosa" style="background-image:url(img/pele.jpg);background-position:center 30%"></div>
+
+<section>
+  <div class="wrap">
+    <div class="fx sec-head"><p class="label">Experiências</p><h2>O que nossas <em>pacientes dizem.</em></h2></div>
+    <div class="fx quotes">
+      <figure><span class="stars">★★★★★</span><blockquote>“Muito boa as meninas são muito simpáticas e profissionais amei.”</blockquote><figcaption>Avaliação no Google</figcaption></figure>
+      <figure><span class="stars">★★★★★</span><blockquote>“Liberação miofascial e ventosa, tudo ótimo, tirou todas as dores!”</blockquote><figcaption>Avaliação no Google</figcaption></figure>
+      <figure><span class="stars">★★★★★</span><blockquote>“Ambiente sempre agradável com ótima receptividade!”</blockquote><figcaption>Avaliação no Google</figcaption></figure>
+    </div>
+    <p class="disclaimer">Relatos individuais refletem experiências pessoais e não garantem resultados iguais.</p>
+  </div>
+</section>
+
+<section id="duvidas">
+  <div class="wrap faq">
+    <p class="label">Perguntas frequentes</p>
+    <div>
+      <h2>Para chegar <em>mais tranquila.</em></h2>
+      <details><summary>Onde fica a Esmerar?</summary><p>Estamos em Barra Velha, Santa Catarina. Fale com a equipe para receber o endereço e as orientações de como chegar.</p></details>
+      <details><summary>Quais cuidados a clínica oferece?</summary><p>Harmonização facial, criomodelagem, estética facial e corporal e nutrição. A indicação é feita após uma conversa individual.</p></details>
+      <details><summary>Como faço para agendar?</summary><p>Fale com a equipe pelo WhatsApp ou Instagram. Vamos entender o que você procura e encontrar o melhor horário.</p></details>
+      <details><summary>Posso conversar antes de escolher um cuidado?</summary><p>Sim. Você pode conversar com a equipe antes de decidir qualquer procedimento.</p></details>
+      <details><summary>Os resultados ficam naturais?</summary><p>Esse é o nosso princípio. Os planos realçam seus traços, sem exageros e sem alterar sua identidade.</p></details>
+      <details><summary>Preciso de avaliação antes do procedimento?</summary><p>Sim. A avaliação define o que é indicado para você e garante um cuidado seguro.</p></details>
+    </div>
+  </div>
+</section>
+
+<div class="band" role="img" aria-label="Recepção da clínica" style="background-image:url(img/recepcao.jpg)"></div>
+<section class="cta" id="contato">
+  <div class="wrap">
+    <p class="label">Seu momento começa aqui</p>
+    <div class="fx cta-grid" style="margin-top:28px">
+      <div>
+        <h2>Vamos conversar <em>com calma?</em></h2>
+        <p style="color:var(--muted);margin-block:28px 36px;max-width:40ch">Conheça a Esmerar e descubra um espaço de cuidado em Barra Velha.</p>
+        <a class="link" href="#contato">Fale com a clínica →</a>
+      </div>
+      <div class="contacts">
+        <div><span class="label">Endereço</span><span>Barra Velha, SC</span></div>
+        <div><span class="label">WhatsApp</span><span>(47) 0000-0000</span></div>
+        <div><span class="label">Instagram</span><span>@esmerar</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer><span class="brand" style="color:var(--ink)">ESMERAR</span><span>Clínica estética · Barra Velha (SC)</span><span>© 2026 Esmerar</span></footer>
+</div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+  var fx=[].slice.call(document.querySelectorAll('.fx'));
+  // elementos já visíveis no carregamento aparecem direto
+  fx.forEach(function(el){if(el.getBoundingClientRect().top<innerHeight)el.classList.add('in')});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});
+    fx.forEach(function(el){io.observe(el)});
+  } else fx.forEach(function(el){el.classList.add('in')});
+  if(reduce)return;
+  var bg=document.querySelector('[data-bg]'),cards=[].slice.call(document.querySelectorAll('.ring .c')),
+      bands=[].slice.call(document.querySelectorAll('.band')),stack=[].slice.call(document.querySelectorAll('.stack .feature'));
+  var base=cards.map(function(c){return getComputedStyle(c).transform==='none'?'':getComputedStyle(c).transform});
+  var tick=false;
+  function run(){
+    tick=false;var y=scrollY,h=innerHeight;
+    if(bg)bg.style.transform='translateY('+(y*.35)+'px) scale(1.08)';
+    bands.forEach(function(b){var r=b.getBoundingClientRect();if(r.bottom<0||r.top>h)return;var p=(r.top+r.height)/(h+r.height);b.style.backgroundPosition='center '+(p*100).toFixed(1)+'%'});
+    stack.forEach(function(c,i){var n=stack[i+1];if(!n){c.style.transform='';return}var a=c.getBoundingClientRect(),b=n.getBoundingClientRect();var d=Math.max(0,Math.min(1,(a.bottom-b.top)/a.height));c.style.transform='scale('+(1-d*.05)+')';c.style.filter='brightness('+(1-d*.12)+')'});
+  }
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(run)}},{passive:true});
+  addEventListener('resize',run);run();
+})();
+</script>
+
+<script>
+(function(){
+  var ring=document.querySelector('.ring'),track=ring&&ring.querySelector('.track');if(!track)return;
+  var orig=[].slice.call(track.children);
+  orig.forEach(function(c){track.appendChild(c.cloneNode(true))});
+  orig.forEach(function(c){track.appendChild(c.cloneNode(true))});
+  var all=[].slice.call(track.children),x=0,last=0,cycle=0;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function measure(){cycle=all[orig.length].offsetLeft-all[0].offsetLeft}
+  function frame(t){
+    var dt=last?Math.min(t-last,50):16;last=t;
+    if(!reduce)x+=dt*0.04;
+    if(cycle&&x>=cycle)x-=cycle;
+    track.style.transform='translate3d('+(-x)+'px,-50%,0)';
+    var rw=ring.clientWidth,mid=rw/2;
+    for(var i=0;i<all.length;i++){var c=all[i];var cx=c.offsetLeft-x+c.offsetWidth/2;var d=(cx-mid)/mid;
+      if(d<-1.4||d>1.4){c.style.visibility='hidden';continue}c.style.visibility='';
+      var ad=Math.min(Math.abs(d),1.3);
+      c.style.transform='rotateY('+(-d*34).toFixed(2)+'deg) scale('+(0.78+ad*0.42).toFixed(3)+')';
+      c.style.zIndex=Math.round(ad*10);
+    }
+    requestAnimationFrame(frame);
+  }
+  measure();addEventListener('resize',measure);addEventListener('load',measure);
+  requestAnimationFrame(frame);
+})();
+</script>
+
+</body>
+</html>
